@@ -4,57 +4,45 @@ namespace Lab06
 {
     class Program
     {
+     
         static void Main(string[] args)
         {
-            Student su = new Student("Student Name", "12345678");
+            TraineeStudent ts = new TraineeStudent("58030205", 400);
             try
             {
-                // su.Name = "My name";
-                su.GPA = 3.5f;
-                Console.WriteLine("Student name : " + su.Name);
-                Console.WriteLine("Student ID   : " + su.ID);
-                Console.WriteLine("Student GPA  : " + su.GPA);
+                
+                Console.WriteLine("StudentID : " + ts.StudentID);
+                Console.WriteLine("Salary by day : " + (ts.Salary >= 350 && ts.Salary <= 450 ? Convert.ToString(ts.Salary) : "Error!!!!invalid Salary"));
             }
-            catch (Exception e)
+            catch (Exception e) 
             {
                 Console.WriteLine(e.Message);
             }
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
-    class Student
+
+    class TraineeStudent
     {
-        private string name;
-        private string id;
-        private float gpa;
+        private string getStudentID;
+        private float getSalary;
 
-        public Student(string Name, string ID)
+
+        public TraineeStudent(string StudentID, float Salary)
         {
-            this.name = Name;   // assign auto variable to the field
-            this.id = ID;
+            this.getStudentID = StudentID;
+            this.getSalary = Salary;
         }
 
-        public string Name
+        public string StudentID
         {
-            get { return name; }
+            get { return getStudentID; }
         }
-        public string ID
+
+        public float Salary
         {
-            get { return id; }
+            get { return getSalary; }
         }
-        public float GPA
-        {
-            get
-            {
-                return gpa;
-            }
-            set
-            {
-                if (value > 0.0 && value <= 4.0)
-                    gpa = value;
-                else
-                    throw (new Exception("Error!!!! invalid GPA"));
-            }
-        }
+
     }
 }
