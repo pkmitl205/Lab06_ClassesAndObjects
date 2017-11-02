@@ -4,44 +4,37 @@ namespace Lab06
 {
     class Program
     {
-     
         static void Main(string[] args)
         {
-            TraineeStudent ts = new TraineeStudent("58030205", 400);
-            try
-            {
-                
-                Console.WriteLine("StudentID : " + ts.StudentID);
-                Console.WriteLine("Salary by day : " + (ts.Salary >= 350 && ts.Salary <= 450 ? Convert.ToString(ts.Salary) : "Error!!!!invalid Salary"));
-            }
-            catch (Exception e) 
-            {
-                Console.WriteLine(e.Message);
-            }
-            Console.ReadKey();
+            Teacher teacher = new Teacher("Tom", 350f);
+            // teacher work for 20Hr/month
+            Console.WriteLine("{0} charge = {1}", teacher.TypeName(),
+                teacher.CalculateCharge(20f));
+            Console.ReadLine();
         }
     }
 
-    class TraineeStudent
-    {
-        private string getStudentID;
-        private float getSalary;
-
-
-        public TraineeStudent(string StudentID, float Salary)
+    class Teacher
         {
-            this.getStudentID = StudentID;
-            this.getSalary = Salary;
+
+        private string name;
+        protected float billingRate;
+
+        // constructor (for initial private/protected variables)
+        public Teacher(string name, float billingRate)
+        {
+           this.name = name;
+           this.billingRate = billingRate;
         }
-
-        public string StudentID
+            // figure out the charge based on teacher's rate
+        public float CalculateCharge(float hours)
         {
-            get { return getStudentID; }
+            return (hours * billingRate);
         }
-
-        public float Salary
+            // return the name of this type
+        public string TypeName()
         {
-            get { return getSalary; }
+            return ("Teacher");
         }
 
     }
