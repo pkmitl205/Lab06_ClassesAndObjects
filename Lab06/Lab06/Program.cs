@@ -4,12 +4,12 @@ namespace Lab06
 {
     class Program
     {
-          static void Main(string[] args)
-   {
-       Student p = new Professor();
-       p.SayHi();
-       Console.ReadKey();
-   }
+        static void Main(string[] args)
+        {
+            Teacher t = new Person();
+            t.SayHi();
+            Console.ReadKey();
+        }
 
     }
 
